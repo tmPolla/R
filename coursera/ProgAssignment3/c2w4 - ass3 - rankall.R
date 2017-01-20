@@ -49,16 +49,21 @@ rankall <- function(outcome, num){
   } else {
     MultiSelect2 <- MultiSelect[order(as.numeric(MultiSelect$c),MultiSelect$a,decreasing = FALSE),]
   }
-  
 
-  #MultiSelect2[ranknum, ]
-  s<- split(MultiSelect2, MultiSelect2$b)
-  return (s)
+  s<- split(data.frame(a=MultiSelect2$a,b= MultiSelect2$b, c=MultiSelect2$c, d=rank(MultiSelect2$c, ties.method ="max")), MultiSelect2$b)
+  s
+  
+  s2<- split(MultiSelect2, MultiSelect2$b)
+  #MultiSelect3<- data.frame(a=MultiSelect2$a,b= MultiSelect2$b, c=MultiSelect2$c, d=rank(MultiSelect2$c, ties.method ="max"))
+  #s<- split(MultiSelect3, MultiSelect3$b)
+  #MultiSelect3
+  
 }
 
 
 cat("\014")
-#rankall("heart attack", 20)
+rankall("heart attack", 20)
 
-head(rankall("heart attack", 20), 10)
+#head(rankall("heart attack", 20), 10)
+
 

@@ -38,22 +38,30 @@ best <- function(state, outcome) {
 
   MultiSelect2 <- MultiSelect[order(-as.numeric(MultiSelect$c),MultiSelect$a,decreasing = TRUE),]
   head(MultiSelect2)
-  MultiSelect2[1,]
-  #MultiSelect2
+  #MultiSelect2[1,]
+  MultiSelect2
 }
-
+cat("\014")
 #"CYPRESS FAIRBANKS MEDICAL CENTER"
-best("TX", "heart attack")
+#best("TX", "heart attack")
 
 #"FORT DUNCAN MEDICAL CENTER"
-best("TX", "heart failure")
+#best("TX", "heart failure")
 
 #"JOHNS HOPKINS HOSPITAL, THE"
-best("MD", "heart attack")
+#best("MD", "heart attack")
 
 #"GREATER BALTIMORE MEDICAL CENTER"
 best("MD", "pneumonia")
 
 #NA
-best("BB", "heart attack")
+#best("BB", "heart attack")
 
+#Question1:
+  best("SC", "heart attack")
+
+#Question2:  
+  best("NY", "pneumonia")
+
+#Question3:    
+  best("AK", "pneumonia")

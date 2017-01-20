@@ -61,7 +61,7 @@ rankhospital <- function(state, outcome, num){
   MultiSelect2[ranknum, ]
 }
 
-
+cat("\014")
 
 rankhospital("MD", "heart failure", 5)
 
@@ -74,3 +74,25 @@ rankhospital("MD", "heart attack", "worst")
 #NA 
 rankhospital("MN", "heart attack", 5000)
 
+#Question4:  
+rankhospital("NC", "heart attack", "worst")
+
+#Question5:
+rankhospital("WA", "heart attack", 7)
+
+#Question6:
+rankhospital("TX", "pneumonia", 10)
+
+#Question7:
+rankhospital("NY", "heart attack", 7)
+
+
+#Question8:
+rankhospital("HI", "heart attack", 4)
+
+#Question9:
+rankhospital("NJ", "pneumonia", "worst")
+
+
+#Question10:
+rankhospital("NV", "heart failure", 10)
