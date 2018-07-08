@@ -1,0 +1,39 @@
+if you have some columns that should be factors and others that should be characters.
+read.delim("my_file.txt", 
+           colClasses = c("character",
+                          "numeric",
+                          "logical"))
+
+calories will be skipped and not loaded into the dataframe
+read.delim("my_file.txt", header = FALSE, 
+                       col.names = c("type", "calories", "sodium"),
+                       colClasses = c("factor", "NULL", "numeric"))
+
+utils: read.delim(), read.csv(), read.table()
+readr: read_tsv(), read_csv(), read_delim()
+# library(readr)
+
+read_delim("my_file.txt", delim="/", col_types="ccdd", col_names=c("A","B") skip=2, n_max=3)
+c: character, d: double, i: integer, l: logical, _: skip
+in case of skip we need to specify the colnames by hand11
+skip: skip ithe first 2 row, n_max: give back maximum 3 record
+
+fread() : similar to read.table() ust quicker and easier
+#library(data.table)
+fread("my_file.txt", drop=2:4)) or drop=c("b", "c", "d")
+fread("my_file.txt", select=c(1,5)) or select = c("a", "e")
+
+load from excel
+#library(readxl)
+# Print out the names of spreadsheets
+excel_sheets("my_file.xlsx")
+# Read the sheets, one by one
+sheet_1 <- read_excel("my_file.xlsx", sheet = 1)
+sheet_2 <- read_excel("my_file.xlsx", sheet = 2)
+
+# Read all Excel sheets with lapply(): pop_list
+own_list <- lapply(excel_sheets("my_file.xlsx"), read_excel, path="my_file.xlsx")
+
+cols <- c("A", paste0("year_", 1960:1966))
+pop_b <- read_excel("urbanpop_nonames.xlsx", sheet = 1, col_names=cols)
+col_names=FALSE R will name the columns as X0, X1, X2 etc
