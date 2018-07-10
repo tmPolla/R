@@ -1,0 +1,33 @@
+# Load the purrr package
+library(purrr)
+
+# Use map_dbl() to find column means
+map_dbl(df, mean)
+
+# Use map_dbl() to column medians
+map_dbl(df, median)
+
+# Use map_dbl() to find column standard deviations
+map_dbl(df, sd)
+
+# Find the columns that are numeric
+map_lgl(df3, is.numeric)
+
+# Find the type of each column
+map_chr(df3, typeof)
+
+# Find a summary of each column
+map(df3, summary)
+
+map() returns a list or data frame
+map_lgl() returns a logical vector
+map_int() returns a integer vector
+map_dbl() returns a double vector
+map_chr() returns a character vector
+
+SHORTCUTS
+map_dbl(cyl, function(df) mean(df$disp))
+map_dbl(cyl, ~ mean(.$disp))
+
+map(cyl, function(df) lm(mpg ~ wt, data = df))
+map(cyl, ~lm(mpg ~ wt, data=.))
