@@ -1,0 +1,11 @@
+safely() returns a list pf result and error
+
+possibly() always succeeds, defaulz value in case of error
+
+quietly() captures printed output, messages, and warnings instead of capturing errors
+
+
+result <- safely(funtion))
+tr_result <- transpose(result)
+tr_result[["error"]]
+tr_result <- transpose(html)[["error"]]
