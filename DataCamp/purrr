@@ -31,3 +31,74 @@ map_dbl(cyl, ~ mean(.$disp))
 
 map(cyl, function(df) lm(mpg ~ wt, data = df))
 map(cyl, ~lm(mpg ~ wt, data=.))
+
+
+
+# Initialize n
+x <- list(5, 10, 20)
+y <- list(1,5,10)
+z <- list(0.1, 1, 1)
+
+#map itarte over one argument
+map(x, rnorm)
+rnorm(5)
+rnorm(10)
+rnorm(20)
+
+map2 iterate over 2 argument
+map2(x, y, rnorm)
+
+pmap iterate over 2 or more arguments
+pmap(list(x,y,z), rnorm)
+
+pmap(list(x, y, z), sum)
+
+# Matching arguments by position
+pmap(list(x, y, z), function(a, b ,c) a / (b + c))
+
+# Matching arguments by name
+l <- list(a = x, b = y, c = z)
+pmap(l, function(c, b, a) a / (b + c))
+
+# invoke_map iterate over function
+  f <- list("mean", "sum", "class")
+invoke_map(f, n = 5)
+mean(5)
+sum(5)
+class(5)
+
+
+#invoke_map can iterate over function with different parameters
+# Define list of functions
+f <- list("rnorm", "runif", "rexp")
+
+# Parameter list for rnorm()
+rnorm_params <- list(mean = 10)
+
+# Add a min element with value 0 and max element with value 5
+runif_params <- list(min=0, max=5)
+
+# Add a rate element with value 5
+rexp_params <- list(rate=5)
+
+# Define params for each function
+params <- list(
+  rnorm_params,
+  runif_params,
+  rexp_params
+)
+
+# Call invoke_map() on f supplying params as the second argument
+invoke_map(f, params, n=5)
+
+
+
+walk()
+x<- list("a",1,"hello")
+x %>% walk(print)
+a
+1
+hello
+
+
+
