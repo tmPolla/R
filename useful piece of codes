@@ -1,0 +1,8 @@
+  if (!"x" %in% names(df)) {
+    stop("df must contain variable called x", call. = FALSE)
+  }
+  
+if (sum(names(diamonds_sub)=="x")>0) {
+    stop("df must contain variable called x", call. = FALSE)
+  }
+  
