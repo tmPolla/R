@@ -1,0 +1,27 @@
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+
+ggplot(var_to_use, aes(x = col1, y = col2)) +
+  geom_point()
+  
+#Log scales
+ggplot(var_to_use, aes(x = col1, y = col2)) +
+  geom_point()+
+  scale_x_log10()
+  
+# COLOR
+ggplot(var_to_use, aes(x = col1, y = col2, color=continent) +
+  geom_point()
+  
+  
+# SIZE
+ggplot(var_to_use, aes(x = col1, y = col2, color=continent, size=pop) +
+  geom_point()
+  
+  
+# SUBPLOT
+ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
+  geom_point()+
+  scale_x_log10()+
+  facet_wrap(~continent)
