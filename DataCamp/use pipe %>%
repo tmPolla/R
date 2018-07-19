@@ -40,3 +40,8 @@ new_var <- gapminder %>%
 # SUMMARIZE
 gapminder %>%
   summarize(new_Var_name = mean(column))
+
+#GROUP BY
+gapminder %>%
+  group_by(year)
+  summarize(medianLifeExp = median(lifeExp), maxGdpPercap=max(gdpPercap))
