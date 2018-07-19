@@ -21,3 +21,14 @@ gapminder %>%
 gapminder %>%
   filter(year==2018) %>%
   arrange(column_name)
+
+#MUTATE
+#create a new column with calulated values
+gapminder %>%
+  mutate(gdp = gdpPercap * pop)
+  
+# Filter, mutate, and arrange the gapminder dataset
+gapminder %>%
+  filter(year==2007) %>%
+  mutate(lifeExpMonths = 12 * lifeExp) %>%
+  arrange(desc(lifeExpMonths))
