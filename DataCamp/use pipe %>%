@@ -1,0 +1,23 @@
+library(gapminder)
+library(dplyr)
+
+#FILTER
+my_data_set %>%
+  filter(column_name==my_value, col_name2==my_value2)
+
+my_data_set %>%
+  filter(year==2018)
+
+gapminder %>%
+  filter(year==2018)
+
+# ARRANGE
+gapminder %>%
+  arrange(column_name)
+gapminder %>%
+  arrange(desc(column_name))
+  
+# FILTER AND ARRANGE
+gapminder %>%
+  filter(year==2018) %>%
+  arrange(column_name)
