@@ -32,3 +32,11 @@ gapminder %>%
   filter(year==2007) %>%
   mutate(lifeExpMonths = 12 * lifeExp) %>%
   arrange(desc(lifeExpMonths))
+
+#CREATE  NEW VARIABLE
+new_var <- gapminder %>%
+  filter(year==2018)
+  
+# SUMMARIZE
+gapminder %>%
+  summarize(new_Var_name = mean(column))
