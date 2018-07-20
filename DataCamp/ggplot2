@@ -2,11 +2,21 @@ library(gapminder)
 library(dplyr)
 library(ggplot2)
 
-ggplot(var_to_use, aes(x = col1, y = col2)) +
+#PLOT TYPES
+geom_point() - scatter plot
+geom_line() - line plot
+geom_col() - bar plot
+geom_histogram() - histogram
+geom_boxplot() - boxplot
+
+ggplot(data_to_use, aes(x = col1, y = col2)) +
   geom_point()
   
+ggplot(data_to_use, aes(x = col1)) +
+  geom_histogram(binwidth=bin_number)  
+  
 #Log scales
-ggplot(var_to_use, aes(x = col1, y = col2)) +
+ggplot(data_to_use, aes(x = col1, y = col2)) +
   geom_point()+
   scale_x_log10()
   
@@ -25,3 +35,14 @@ ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
   geom_point()+
   scale_x_log10()+
   facet_wrap(~continent)
+
+
+# Y STARTING POINT
+ggplot(data_to_use, aes(x = col1, y = col2)) +
+  geom_point()+
+  expand_limits(y = 0)
+  
+# TITLE
+ggplot(data_to_use, aes(x = col1, y = col2)) +
+  geom_point()+
+  ggtitle('new title text')
