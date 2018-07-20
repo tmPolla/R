@@ -21,6 +21,8 @@ ggplot(data_to_use, aes(x = col1, y = col2)) +
   scale_x_log10()
   
 # COLOR
+ggplot(var_to_use, aes(x = col1, y = col2, color=col3) +
+  geom_point()
 ggplot(var_to_use, aes(x = col1, y = col2, color=continent) +
   geom_point()
   
@@ -41,6 +43,7 @@ ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
 ggplot(data_to_use, aes(x = col1, y = col2)) +
   geom_point()+
   expand_limits(y = 0)
+  
   
 # TITLE
 ggplot(data_to_use, aes(x = col1, y = col2)) +
